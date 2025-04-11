@@ -1,0 +1,30 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --inspect index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/dohoangnam2912/blogbk.git"
+  },
+  "keywords": [
+    "blog",
+    "nodejs"
+  ],
+  "author": "namhoang2912",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dohoangnam2912/blogbk/issues"
+  },
+  "homepage": "https://github.com/dohoangnam2912/blogbk#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
