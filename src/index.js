@@ -5,11 +5,13 @@ const morgan = require('morgan')
 const app = express()
 const port = 3000
 
+const route = require('./routes')
+
 app.use(express.static(path.join(__dirname, 'public')))
 
-// HTTP logger
+app.use(express.urlencoded())
+app.use(express.json())
 // app.use(morgan('combined'))
-
 
 // Template engine
 app.engine('hbs', hbs.engine({
@@ -18,22 +20,7 @@ app.engine('hbs', hbs.engine({
 app.set('view engine', 'hbs')
 app.set('views', path.join(__dirname, "resources", "views"))
 
-app.get('/', (req, res) => {
-  res.render('home')
-})
-
-app.get('/news', (req, res) => {
-  console.log(req.query.q)
-  res.render('news')
-})
-
-app.get('/search', (req, res) => {
-  res.render('search')
-})
-
-app.post('/search', (req, res) => {
-  res.render('search')
-})
+route(app);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
