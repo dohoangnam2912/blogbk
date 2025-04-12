@@ -1,3 +1,5 @@
-.test {
-    font-size: 1rem;
+@use 'variables' as v;
+
+h1 {
+    color: v.$blue-color;
 }
