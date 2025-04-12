@@ -8,7 +8,7 @@ const port = 3000
 app.use(express.static(path.join(__dirname, 'public')))
 
 // HTTP logger
-app.use(morgan('combined'))
+// app.use(morgan('combined'))
 
 
 // Template engine
@@ -23,7 +23,16 @@ app.get('/', (req, res) => {
 })
 
 app.get('/news', (req, res) => {
+  console.log(req.query.q)
   res.render('news')
+})
+
+app.get('/search', (req, res) => {
+  res.render('search')
+})
+
+app.post('/search', (req, res) => {
+  res.render('search')
 })
 
 app.listen(port, () => {
