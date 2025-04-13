@@ -1,12 +1,22 @@
 const Blog = require('../models/Blog');
+const {
+    multipleMongooseToObject,
+    singleMongooseToObject,
+} = require('../../utils/mongoose_utils');
 
 class SiteController {
     // [GET] /
     index(req, res, next) {
+        // Blog.find({})
+        //     .then((blogs) => {
+        //         res.render('home', {
+        //             blogs: multipleMongooseToObject(blogs), // blogs: blogs
+        //         });
+        //     })
+        //     .catch(next);
         Blog.find({})
+            .lean()
             .then((blogs) => {
-                blogs = blogs.map((blogs) => blogs.toObject());
-                console.log(blogs);
                 res.render('home', {
                     blogs, // blogs: blogs
                 });
