@@ -7,18 +7,11 @@ const {
 class SiteController {
     // [GET] /
     index(req, res, next) {
-        // Blog.find({})
-        //     .then((blogs) => {
-        //         res.render('home', {
-        //             blogs: multipleMongooseToObject(blogs), // blogs: blogs
-        //         });
-        //     })
-        //     .catch(next);
         Blog.find({})
             .lean()
             .then((blogs) => {
                 res.render('home', {
-                    blogs, // blogs: blogs
+                    blogs,
                 });
             })
             .catch(next);
